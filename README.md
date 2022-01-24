@@ -5,7 +5,7 @@ BOM is a simple Django app to manage a bill of materials. It supports multiple p
 
 [See a live example](https://www.indabom.com).
 
-BOM can be added to an existing (or new) Django project, or stand alone on its own, which can be more convenient if you're interested in tweaking the tool. 
+BOM can be added to an existing (or new) Django project, or stand alone on its own, which can be more convenient if you're interested in tweaking the tool.
 
 If you already have a django project, you can skip to [Add Django Bom To Your App](#add-django-bom-to-your-app), otherwise [Start From Scratch: Add to new Django project](#start-from-scratch-add-to-a-new-django-project) to add it to a new django project, or [Start From Scratch: Use as standalone Django project](#start-from-scratch-use-as-a-standalone-django-project).
 
@@ -17,7 +17,7 @@ If you already have a django project, you can skip to [Add Django Bom To Your Ap
    * [Integrations](#integrations)
    * [Contributing](#contributing)
    * [Installation pitfalls](#installation-pitfalls)
-   
+
 ## Start From Scratch: Add to a new Django project
 1. To start from scratch we recommend setting up a virtual environment
 ```
@@ -98,7 +98,7 @@ BOM_CONFIG = {}
 
 6. Visit http://127.0.0.1:8000/bom/ to begin.
 
-   
+
 ## Start From Scratch: Use as a standalone Django project
 1. To start from scratch we recommend setting up a virtual environment
 ```
@@ -110,9 +110,10 @@ source bin/activate
 2. From here install django, and set up your project.
 ```
 git clone https://github.com/mpkasp/django-bom.git
+cd django-bom
 pip install -r requirements.txt
-python manage.py migrate
 cp bom/local_settings.py.example bom/local_settings.py
+python manage.py migrate
 python manage.py runserver
 ```
 
@@ -146,7 +147,7 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_AUTH_EXTRA_ARGUMENTS = {
     'access_type': 'offline',
     'approval_prompt': 'auto'
 }
-``` 
+```
 And if you're using https on production add:
 ```
 SOCIAL_AUTH_REDIRECT_IS_HTTPS = not DEBUG
