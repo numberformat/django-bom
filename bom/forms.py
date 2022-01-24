@@ -295,7 +295,7 @@ class SellerPartForm(forms.ModelForm):
         self.organization = kwargs.pop('organization', None)
         self.manufacturer_part = kwargs.pop('manufacturer_part', None)
         self.base_fields['unit_cost'] = forms.DecimalField(required=True, decimal_places=4, max_digits=17)
-        self.base_fields['nre_cost'] = forms.DecimalField(required=True, decimal_places=4, max_digits=17, label='NRE cost')
+        self.base_fields['nre_cost'] = forms.DecimalField(required=True, decimal_places=4, max_digits=17, label='Non Reoccurring Engineering cost')
 
         instance = kwargs.get('instance')
         if instance:
@@ -320,7 +320,7 @@ class SellerPartForm(forms.ModelForm):
         self.instance.unit_cost = Money(unit_cost, self.organization.currency)
 
         if nre_cost is None:
-            raise forms.ValidationError("Invalid NRE cost.", code='invalid')
+            raise forms.ValidationError("Invalid Non Reoccurring Engineering cost.", code='invalid')
         self.instance.nre_cost = Money(nre_cost, self.organization.currency)
 
         if seller and new_seller:
